@@ -7,9 +7,7 @@ import { Card } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getSession } from 'app/shared/reducers/authentication';
-import { getProfile } from 'app/shared/reducers/application-profile';
+import { useAppSelector } from 'app/config/store';
 import Header from 'app/shared/layout/header/header';
 import Footer from 'app/shared/layout/footer/footer';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
@@ -20,11 +18,11 @@ import AppRoutes from 'app/routes';
 const baseHref = document.querySelector('base').getAttribute('href').replace(/\/$/, '');
 
 export const App = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getSession());
-    dispatch(getProfile());
+    // dispatch(getSession());
+    // dispatch(getProfile());
   }, []);
 
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
